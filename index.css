@@ -1,0 +1,264 @@
+#rectangle {
+	width: 1500px;
+	height: 60px;
+	background: #B0DFB3;
+	margin-top: -10px;
+	margin-left: -20px;
+}
+
+#demo {
+	font-size: 32px;
+	color: red;
+}
+
+#product {
+	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-size: 28px;
+}
+
+#view_cart {
+	margin-left: 1200px;
+	margin-top: -35px;
+}
+
+#view_cart:hover {
+	margin-left: 1200px;
+	margin-top: -35px;
+	opacity: .5;
+}
+
+#margin {
+	margin-top: 200px;
+	margin-left: 100px;
+}
+
+#gummies {
+	margin-left: 50px;
+	border: 2px black solid;
+}
+
+#button {
+	margin-left: 160px;
+	width: 150px;
+	height: 37px;
+	margin-top: 25px;
+	font-size: 15px;
+	letter-spacing: 2px;
+	border-radius: 25px;
+	background-color: gold;
+	font-weight: bold;
+}
+
+#button:hover {
+	opacity: .5;
+	cursor: pointer;
+}
+
+#paypal-button-container {
+	margin-left: 160px;
+	margin-top: 25px;
+}
+
+#padding {
+	padding-bottom: 20px;
+}
+
+#words {
+	font-size: 20px;
+}
+
+#description {
+	float: right;
+	margin-left: 700px;
+	margin-right: 100px;
+	line-height: 40px;
+	font-size: 20px;
+	margin-top: -250px;
+}
+
+#price {
+	float: right;
+	margin-right: 480px;
+	line-height: 40px;
+	font-size: 27px;
+	margin-top: -365px;
+}
+
+#other {
+	margin-top: 75px;
+    position: relative;
+    font-size: 24px;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+#other:before, #other:after {
+    position: absolute;
+    top: 60%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: black;
+}
+
+#other:before {
+    margin-left: -50%;
+    text-align: right;
+}
+
+.color {
+    background-color: black;
+}
+
+#pic1, #pic2 {
+	width: 250px;
+	height: auto;
+	margin-left: 150px;
+	margin-top: 50px;
+}
+
+#pic1:hover, #pic2:hover {
+	opacity: .30;
+	cursor: pointer;
+}
+
+
+#pics {
+	margin-top: 50px;
+}
+
+#pic_prices {
+	margin-left: -60px;
+	margin-top: -10px;
+}
+
+h3 {
+	float: left;
+	font-family: arial;
+	margin-left: 270px;
+	font-size: 20px;
+	padding-left: -50px;
+}
+
+#add_to_cart {
+	float: right;
+	margin-right: 450px;
+	margin-top: -475px;
+}
+
+#add_to_cart:hover {
+	opacity: .5;
+}
+
+#log_in {
+	float: right;
+	margin-right: 20px;
+	font-size: 14px;
+	margin-top: 20px;
+	color: white;
+	font-weight: bold;
+}
+
+#log_in:hover {
+	float: right;
+	margin-right: 20px;
+	font-size: 14px;
+	margin-top: 20px;
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#sign_up {
+	float: right;
+	margin-right: 60px;
+	font-size: 14px;
+	margin-top: 20px;
+	color: white;
+	font-weight: bold;
+}
+
+#sign_up:hover {
+	float: right;
+	margin-right: 60px;
+	font-size: 14px;
+	margin-top: 20px;
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#contact {
+	float: right;
+	margin-right: 150px;
+	font-size: 14px;
+	margin-top: 20px;
+	color: white;
+	font-weight: bold;
+}
+
+#contact:hover {
+	float: right;
+	margin-right: 150px;
+	font-size: 14px;
+	margin-top: 20px;
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    width: 225px;
+    color: white;
+    padding: 16px;
+    font-size: 20px;
+    border-left: 2px solid black;
+    cursor: pointer;
+    margin-left: -10px;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	width: 220px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    margin-left: -10px;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #3e8e41;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #B0DFB3}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+    opacity: .5;
+}

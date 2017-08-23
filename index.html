@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<div id="rectangle">
+  <p id="contact">Contact</p>
+  <p id="sign_up">Sign Up</p>
+  <p id="log_in">Log In</p>
+</div>
+
+
+<div id="tabs">
+<div class="dropdown">
+  <button class="dropbtn">Our Story</button>
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn">What's CBD?</button>
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn">Resources</button>
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn">Our Products</button>
+  <div class="dropdown-content">
+    <a href="#">Tea Mixtures</a>
+    <a href="#">Tablets</a>
+    <a href="#">Gummies</a>
+  </div>
+</div>
+</div>
+
+  <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+      <!-- Identify your business so that you can collect the payments. -->
+      <input type="hidden" name="business" value="dumboresearchlabs-facilitator@gmail.com">
+
+      <!-- Specify a PayPal shopping cart View Cart button. -->
+      <input type="hidden" name="cmd" value="_cart">
+      <input type="hidden" name="display" value="1">
+
+      <input type="hidden" name="shopping_url" value="file:///Users/douglasrutnarak/Desktop/WDI/Dumbo%20Labs/test/index.html">
+
+
+      <!-- Display the View Cart button. -->
+      <div id="view_cart">
+      <input type="image" name="submit"
+          src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_viewcart_113x26.png"
+         alt="Add to Cart">
+      <img alt="" width="1" height="1"
+          src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+          </div>
+  </form>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+</head>
+
+<body>
+
+<div id="margin">
+	<h1 id="product">These Amazing 10 Dollar Gummies</h1>
+  <img id="gummies" src="gummies.jpg">
+<script src="https://www.paypalobjects.com/api/checkout.js"></script><br>
+
+<!-- Render the radio fields and button containers -->
+
+
+<h2 id="price">$9.99</h2>
+<h2 id="description">Stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff Stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff Stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff Stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff Stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff</h2>
+
+
+<label><br>
+    <input type="radio" name="payment-option" value="paypal" checked>
+    <img src="/demo/checkout/static/img/paypal-mark.jpg" id="words" alt="Pay with Paypal">
+</label>
+
+<label><br><br>
+    <input type="radio" name="payment-option" value="card">
+    <img src="/demo/checkout/static/img/card-mark.png" id="words" alt="Accepting Visa, Mastercard, Discover and American Express"><br>
+</label>
+
+
+<div id="paypal-button-container"></div>
+<div id="card-button-container" class="hidden"><button id="button">Continue</button></div>
+</div>
+
+<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+  <!-- Identify your business so that you can collect the payments. -->
+  <input type="hidden" name="business" value="dumboresearchlabs-facilitator@gmail.com">
+
+  <!-- Specify a PayPal Shopping Cart Add to Cart button. -->
+  <input type="hidden" name="cmd" value="_cart">
+  <input type="hidden" name="add" value="1">
+
+  <input type="hidden" name="shopping_url" value="file:///Users/douglasrutnarak/Desktop/WDI/Dumbo%20Labs/test/index.html">
+
+  <!-- Specify details about the item that buyers will purchase. -->
+  <input type="hidden" name="item_name" value="Amazing 10 Dollar Gummie">
+  <input type="hidden" name="amount" value="9.99">
+  <input type="hidden" name="currency_code" value="USD">
+
+  <!-- Display the payment button. -->
+  <input id="add_to_cart" type="image" name="submit"
+    src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_addtocart_120x26.png"
+    alt="Add to Cart">
+  <img alt="" width="1" height="1"
+    src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+</form>
+</body>
+
+</body>
+
+<script>
+
+    // Helper functions
+
+    function getElements(el) {
+        return Array.prototype.slice.call(document.querySelectorAll(el));
+    }
+
+    function hideElement(el) {
+        document.body.querySelector(el).style.display = 'none';
+    }
+
+    function showElement(el) {
+        document.body.querySelector(el).style.display = 'block';
+    }
+
+    // Listen for changes to the radio fields
+
+    getElements('input[name=payment-option]').forEach(function(el) {
+        el.addEventListener('change', function(event) {
+
+            // If PayPal is selected, show the PayPal button
+
+            if (event.target.value === 'paypal') {
+                hideElement('#card-button-container');
+                showElement('#paypal-button-container');
+            }
+
+            // If Card is selected, show the standard continue button
+
+            if (event.target.value === 'card') {
+                showElement('#card-button-container');
+                hideElement('#paypal-button-container');
+            }
+        });
+    });
+
+    // Hide Non-PayPal button by default
+
+    hideElement('#card-button-container');
+
+    // Render the PayPal button
+
+    paypal.Button.render({
+
+        env: 'sandbox',
+
+        client: {
+            sandbox:    'AdURsRYewxAS51haI7L9MyzGrBRWvtzf_PdYubw9PBr5psVadJgBfVa2FSnMKeJk7fjlfLNjqsGAh_bw',
+            production: '<insert production client id>'
+        },
+
+        payment: function(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: '9.99', currency: 'USD' }
+                        }
+                    ]
+                }
+            });
+        },
+
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function() {
+                window.alert('Payment Complete!');
+            });
+        }
+
+    }, '#paypal-button-container');
+</script>
+
+
+<div id="padding"></div>
+
+<h1 id="other">Similar Products</h1>
+
+<div id="pics">
+  <img id="pic1" src="cbd1.jpg">
+  <img id="pic2" src="cbd2.jpg">
+  <img id="pic1" src="cbd1.jpg">
+</div>
+
+<div id="pic_prices">
+  <h3>Product Name</h3>
+  <h3>Product Name</h3>
+  <h3>Product Name</h3>
+</div>
+
+<script>
+
+paypal.minicart.cart.total();
+
+
+$( document ).ready(function() {
+     var cartTotal = paypal.minicart.cart.total();
+        $('input#cart').val('$' + cartTotal);
+
+    $( "body" ).click(function() {
+            setTimeout(function() { // Setting slight delay on function to accomodate for button push of removing items from cart
+             var cartTotal = paypal.minicart.cart.total();
+            $('input#cart').val('$' + cartTotal);
+        }, 100);
+    });
+
+
+    $( "body" ).keypress(function() {
+       setTimeout(function() { // Setting longer delay on function to accomodate for key push of removing items from cart
+             var cartTotal = paypal.minicart.cart.total();
+            $('input#cart').val('$' + cartTotal);
+        }, 900);
+    });
+</script>
+
+</body>
+
+
+    
